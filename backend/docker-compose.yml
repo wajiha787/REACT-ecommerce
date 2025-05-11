@@ -1,7 +1,7 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  web:
+  backend:
     build: ./backend
     ports:
       - "5000:5000"
@@ -9,17 +9,16 @@ services:
       - db
     environment:
       - DB_HOST=db
-      - DB_NAME=foodhub
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
+      - DB_NAME=mydb
+      - DB_USER=admin
+      - DB_PASSWORD=1234
 
   db:
-    image: postgres:13
-    restart: always
+    image: postgres:13-alpine
     environment:
-      POSTGRES_DB: foodhub
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
     volumes:
       - db_data:/var/lib/postgresql/data
 
