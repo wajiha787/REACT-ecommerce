@@ -6,7 +6,7 @@ function Home({ addToCart }) {
   const navigate = useNavigate(); // Correct usage
 
   useEffect(() => {
-    fetch('http://16.171.47.245/api/products')
+    fetch('http://13.60.172.116:5000/api/products')
       .then((res) => res.json())
       .then((data) => setFoodItems(data))
       .catch((err) => console.error('Failed to load products', err));
